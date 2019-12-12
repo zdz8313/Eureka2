@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+/**
+ * 自己注释@！表示整合熔断器所添加的东西
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -18,6 +20,8 @@ public class UserController {
         System.out.println(request.getRequestURL());
         //url显示路径
         user.setMsg(request.getRequestURL().toString());
+        //@!
+        Thread.sleep(800);
         return  user;
     }
     @PostMapping
